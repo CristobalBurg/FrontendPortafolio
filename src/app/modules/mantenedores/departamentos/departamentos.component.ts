@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Comuna, Departamento } from 'src/app/shared/interfaces/entities.interface.';
-import { DepartamentoService } from '../../shared/services/departamento.service';
+import { DepartamentoService } from '../../../shared/services/departamento.service';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
 

@@ -1,0 +1,123 @@
+<div class="container my-5" *ngIf="listadoClientes">
+    <div class="row">
+      <form class="d-flex">
+        <button type="button" class="btn btn-primary mx-2 " (click)="open(content,'crear')">Crear</button>
+        <input class="form-control me-2" [(ngModel)]="searchValue" name="searchValue"  placeholder="Ingresa Id , dirección o comuna" aria-label="Search">
+        <button class="btn btn-outline-primary" type="button">Buscar</button>
+      </form>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="alert alert-primary" *ngIf="listadoClientes.length === 0">
+        <p>No hay clientes creados</p>
+      </div>
+      <div class="row mb-2">
+        <div class="col-md-6" *ngFor="let item of listadoClientes | searchFieldClientes:searchValue">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-primary">{{item.rutCliente}}</strong>
+              <h3 class="mb-0">{{item.nombre + ' ' + item.apellido}}</h3>
+              <div class="mb-1 text-muted">Contacto: {{item.contacto}}</div>
+              <p class="card-text mb-auto">Cliente Habitual</p>
+              <div class="mb-1 text-success"> <b>Correo : {{item.correo }}</b> </div>
+  
+              <div class="row my-1">
+                <div class="col-6">
+                  <button class="btn btn-outline-primary btn-sm mx-2 w-100" (click)="cargarCliente(item)">Editar</button>
+  
+                </div>
+                <div class="col-6">
+                  <button class="btn btn-outline-primary btn-sm mx-2 w-100" (click)="borrarCliente(item.rutCliente)">Borrar</button>
+  
+                </div>
+              </div>
+              
+            </div>
+ 
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modalCreateCliente"> {{isUpdate  ? 'Editar Cliente' : 'Crear Nuevo Cliente'}}</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+    </div>
+    <div class="modal-body modal-sm">
+      <form [formGroup]="formCrearCliente" (ngSubmit)=" isUpdate ? editarCliente() : crearCliente()">
+        <div class="mb-3">
+          <label for="rutCliente" class="form-label">Rut</label>
+          <input type="text" class="form-control" formControlName="rutCliente" id="rutCliente"
+            placeholder="18165385-k">
+            <div
+            *ngIf="formCrearCliente.get('rutCliente').invalid && (formCrearCliente.get('rutCliente').dirty || formCrearCliente.get('rutCliente').touched)">
+            <div *ngIf="formCrearCliente.get('rutCliente').hasError('required')">
+              <p style="color: red;">Debe ingresar un rut válido</p> 
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text"  class="form-control" formControlName="nombre" id="nombre"
+            placeholder="Ingrese nombre">
+            <div
+            *ngIf="formCrearCliente.get('nombre').invalid && (formCrearCliente.get('nombre').dirty || formCrearCliente.get('nombre').touched)">
+            <div *ngIf="formCrearCliente.get('nombre').hasError('pattern')">
+              <p style="color: red;">Debe ingresar un nombre válido</p> 
+            </div>
+            <div *ngIf="formCrearCliente.get('nombre').hasError('required')">
+              <p style="color: red;">nombre requerido</p> 
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="apellido" class="form-label">Apellido</label>
+          <input type="text" min="1" class="form-control" formControlName="apellido" id="apellido" placeholder="Ingrese apellido">
+          <div
+          *ngIf="formCrearCliente.get('apellido').invalid && (formCrearCliente.get('apellido').dirty || formCrearCliente.get('apellido').touched)">
+          <div *ngIf="formCrearCliente.get('apellido').hasError('pattern')">
+            <p style="color: red;">Debe ingresar un apellido válido</p> 
+          </div>
+          <div *ngIf="formCrearCliente.get('apellido').hasError('required')">
+            <p style="color: red;">apellido requerido</p> 
+          </div>
+        </div>
+        </div>
+        <div class="mb-3">
+          <label for="contacto" class="form-label">Contacto</label>
+          <input type="text"class="form-control" formControlName="contacto" id="contacto"
+            placeholder="+569 98414532">
+            <div
+            *ngIf="formCrearCliente.get('contacto').invalid && (formCrearCliente.get('contacto').dirty || formCrearCliente.get('contacto').touched)">
+            <div *ngIf="formCrearCliente.get('contacto').hasError('pattern')">
+              <p style="color: red;">Ingrese un contacto válido</p> 
+            </div>
+            <div *ngIf="formCrearCliente.get('contacto').hasError('required')">
+              <p style="color: red;">Ingrese un contacto</p> 
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="correo" class="form-label">Politicas y Condiciones</label>
+          <input type="email"class="form-control" formControlName="correo" id="correo"
+          placeholder="johndoe@gmail.cl">
+            <div
+            *ngIf="formCrearCliente.get('correo').invalid && (formCrearCliente.get('correo').dirty || formCrearCliente.get('correo').touched)">
+            <div *ngIf="formCrearCliente.get('correo').hasError('email')">
+              <p style="color: red;">Debe ingresar un correo valido</p> 
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary" (click)=" isUpdate ? editar() : crearCliente()">{{ isUpdate ? 'Editar' :'Crear' }}</button>
+  
+        </div>
+      </form>
+    </div>
+  
+  </ng-template>
+  
+  
+  <hr>

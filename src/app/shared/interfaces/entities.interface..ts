@@ -13,3 +13,12 @@ export interface Comuna {
     idProvincia: number;
     nombre:      string;
 }
+
+export interface Cliente {
+    rutCliente: string;
+    nombre: string;
+    apellido: string;
+    contacto: string;
+    correo:string;
+
+}

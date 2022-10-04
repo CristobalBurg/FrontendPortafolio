@@ -1,10 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Departamento } from '../interfaces/entities.interface.';
+import { Cliente, Departamento } from '../interfaces/entities.interface.';
 
 @Pipe({
-  name: 'searchField'
+  name: 'searchFieldDeptos'
 })
-export class SearchFieldPipe implements PipeTransform {
+export class SearchFieldPipeDeptos implements PipeTransform {
 
   transform(departamentos: Departamento[], searchValue: string): Departamento[] {
     if(!departamentos || !searchValue){
@@ -16,5 +16,22 @@ export class SearchFieldPipe implements PipeTransform {
       depto.idDeparamento === Number(searchValue)
       )
   }
+}
 
+@Pipe({
+  name: 'searchFieldClientes'
+})
+export class SearchFieldPipeClientes implements PipeTransform {
+
+  transform(clientes: Cliente[], searchValue: string): Cliente[] {
+    if(!clientes || !searchValue){
+      return clientes;
+    }
+    return clientes.filter( cliente => 
+      cliente.rutCliente.toLowerCase().includes(searchValue.toLowerCase()) ||
+      cliente.nombre.toLowerCase().includes(searchValue.toLowerCase()) ||
+      cliente.apellido.toLowerCase().includes(searchValue.toLowerCase()) ||
+      cliente.correo.toLowerCase().includes(searchValue.toLowerCase()) 
+      )
+  }
 }

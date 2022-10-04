@@ -55,6 +55,5 @@ export class DepartamentoService {
         return throwError(e);
       })
     )
-
   }
 }
