@@ -1,0 +1,147 @@
+<div class="container my-5" *ngIf="listadoDepartamentos && listadoComunas">
+  <div class="row">
+    <form class="d-flex">
+      <button type="button" class="btn btn-primary mx-2 " (click)="open(content,'crear')">Crear</button>
+      <input class="form-control me-2" [(ngModel)]="searchValue" name="searchValue"  placeholder="Ingresa Id , dirección o comuna" aria-label="Search">
+      <button class="btn btn-outline-primary" type="button">Buscar</button>
+    </form>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="alert alert-primary" *ngIf="listadoDepartamentos.length === 0">
+      <p>No hay departamentos creados</p>
+    </div>
+    <div class="row mb-2">
+      <div class="col-md-6" *ngFor="let item of listadoDepartamentos | searchField:searchValue">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">{{item.comuna.nombre}}</strong>
+            <h3 class="mb-0">{{item.direccion}}</h3>
+            <div class="mb-1 text-muted">Habitaciones: {{item.ctdHabitaciones}} Baños: {{item.ctdBanos}}</div>
+            <p class="card-text mb-auto">{{item.politicasCondiciones}}</p>
+            <div class="mb-1 text-success"> <b>Valor diario : {{item.valorArriendoDia | currency:'CLP'}}</b> </div>
+
+            <div class="row my-1">
+              <div class="col-3">
+                <button class="btn btn-outline-primary btn-sm mx-2 w-100" (click)="cargarDepartamento(item)">Editar</button>
+
+              </div>
+              <div class="col-3">
+                <button class="btn btn-outline-primary btn-sm mx-2 w-100" (click)="borrarDepartamento(item.idDeparamento)">Borrar</button>
+
+              </div>
+              <div class="col-3">
+                <label class="btn btn-default btn-sm btn-outline-primary mx-2 w-100">
+                  Foto <input (change)="seleccionarFoto($event , item.idDeparamento)" type="file" style="display: none;" required>
+              </label>
+              </div>
+              <div class="col-3">
+                <button class="btn btn-outline-primary btn-sm mx-2 w-100" (click)="borrarDepartamento(item.idDeparamento)">Reserva</button>
+              </div>
+            </div>
+            
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <img *ngIf="item?.foto" src="http://localhost:8080/api/departamentos/upload/img/{{item.foto}}"  class="img-thumbnail" width="250" height="200">
+            <img *ngIf="!item?.foto" src="http://localhost:8080/api/departamentos/upload/img/noImage.jpg"  class="img-thumbnail" width="250" height="200">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modalCreate"> {{isUpdate  ? 'Editar departamento' : 'Crear Nuevo Departamento'}}</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+  </div>
+  <div class="modal-body modal-sm">
+    <form [formGroup]="formCrearDepto" (ngSubmit)=" isUpdate ? editarDepartamento() : crearDepartamento()">
+      <div class="mb-3">
+        <label for="direccion" class="form-label">Dirección</label>
+        <input type="text" class="form-control" formControlName="direccion" id="direccion"
+          placeholder="Los aromos 2232">
+          <div
+          *ngIf="formCrearDepto.get('direccion').invalid && (formCrearDepto.get('direccion').dirty || formCrearDepto.get('direccion').touched)">
+          <div *ngIf="formCrearDepto.get('direccion').hasError('required')">
+            <p style="color: red;">Debe ingresar una dirección</p> 
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <select class="form-select" id="comuna" formControlName="comuna" placeholder="Seleccione" >
+          <option *ngFor="let item of listadoComunas" [ngValue]="item">
+            {{item.nombre}}
+          </option>
+        </select>
+        <div
+        *ngIf="formCrearDepto.get('comuna').invalid && (formCrearDepto.get('comuna').dirty || formCrearDepto.get('comuna').touched)">
+        <div *ngIf="formCrearDepto.get('comuna').hasError('required')">
+          <p style="color: red;">Debe ingresar una comuna</p> 
+        </div>
+      </div>
+      </div>
+      <div class="mb-3">
+        <label for="ctdHabitaciones" class="form-label">Cantdad Habitaciones</label>
+        <input type="number" min="1" class="form-control" formControlName="ctdHabitaciones" id="ctdHabitaciones"
+          placeholder="1">
+          <div
+          *ngIf="formCrearDepto.get('ctdHabitaciones').invalid && (formCrearDepto.get('ctdHabitaciones').dirty || formCrearDepto.get('ctdHabitaciones').touched)">
+          <div *ngIf="formCrearDepto.get('ctdHabitaciones').hasError('min')">
+            <p style="color: red;">la cantidad minima de habitaciones debe ser 1</p> 
+          </div>
+          <div *ngIf="formCrearDepto.get('ctdHabitaciones').hasError('required')">
+            <p style="color: red;">Ingresela cantidad de habitaciones</p> 
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="ctdBanos" class="form-label">Cantdad Baños</label>
+        <input type="number" min="1" class="form-control" formControlName="ctdBanos" id="ctdBanos" placeholder="1">
+        <div
+        *ngIf="formCrearDepto.get('ctdBanos').invalid && (formCrearDepto.get('ctdBanos').dirty || formCrearDepto.get('ctdBanos').touched)">
+        <div *ngIf="formCrearDepto.get('ctdBanos').hasError('min')">
+          <p style="color: red;">la cantidad minimo de baños debe ser 1</p> 
+        </div>
+        <div *ngIf="formCrearDepto.get('ctdBanos').hasError('required')">
+          <p style="color: red;">Ingrese la cantidad de baños</p> 
+        </div>
+      </div>
+      </div>
+      <div class="mb-3">
+        <label for="valorArriendoDia" class="form-label">Valor Arriendo Dia</label>
+        <input type="number" min="30000" class="form-control" formControlName="valorArriendoDia" id="valorArriendoDia"
+          placeholder="30000">
+          <div
+          *ngIf="formCrearDepto.get('valorArriendoDia').invalid && (formCrearDepto.get('valorArriendoDia').dirty || formCrearDepto.get('valorArriendoDia').touched)">
+          <div *ngIf="formCrearDepto.get('valorArriendoDia').hasError('min')">
+            <p style="color: red;">El valor por dia minimo debe ser de $ 30.000</p> 
+          </div>
+          <div *ngIf="formCrearDepto.get('valorArriendoDia').hasError('required')">
+            <p style="color: red;">Ingrese el valor diario del arriendo</p> 
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="politicasCondiciones" class="form-label">Politicas y Condiciones</label>
+        <textarea class="form-control" formControlName="politicasCondiciones" id="politicasCondiciones"
+          rows="3"></textarea>
+          <div
+          *ngIf="formCrearDepto.get('politicasCondiciones').invalid && (formCrearDepto.get('politicasCondiciones').dirty || formCrearDepto.get('politicasCondiciones').touched)">
+          <div *ngIf="formCrearDepto.get('politicasCondiciones').hasError('required')">
+            <p style="color: red;">Debe ingresar las politicas y condiciones de uso del departamento</p> 
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary" (click)=" isUpdate ? editar() : crearDepartamento()">{{ isUpdate ? 'Editar' :'Crear' }}</button>
+
+      </div>
+    </form>
+  </div>
+
+</ng-template>
+
+
+<hr>
