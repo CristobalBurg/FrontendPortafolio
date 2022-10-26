@@ -1,14 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DepartamentosComponent } from './modules/mantenedores/departamentos/departamentos.component';
-import { LandingComponent } from './modules/landing/landing.component';
-import { ClientesComponent } from './modules/mantenedores/clientes/clientes.component';
+import { DepartamentosComponent } from './modules/departamentos/departamentos.component';
+import { Navbar2Component } from './shared/navbar2/navbar2.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { ServiciosComponent } from './modules/servicios/servicios.component';
+import { HomeComponent } from './modules/home/home.component';
+import { FechasComponent } from './modules/fechas/fechas.component';
 
 const routes: Routes = [
-  {path: "", redirectTo: 'landing', pathMatch:'full'},
-  {path: 'landing' , component: LandingComponent},
+  {path: "", redirectTo: 'home', pathMatch:'full'},
   {path: 'departamentos' , component: DepartamentosComponent},
-  {path: 'clientes' , component: ClientesComponent}
+  {path: 'navbar2' , component: Navbar2Component},
+  {path: 'footer' , component: FooterComponent},
+  {path: 'servicios' , component: ServiciosComponent},
+  {path: 'home' , component: HomeComponent},
+  {path: 'fechas' , component: FechasComponent},
 
 ];
 
