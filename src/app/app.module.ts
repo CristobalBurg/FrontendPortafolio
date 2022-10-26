@@ -15,6 +15,7 @@ import { Navbar2Component } from './shared/navbar2/navbar2.component';
 import { ServiciosComponent } from './modules/servicios/servicios.component';
 import { HomeComponent } from './modules/home/home.component';
 import { FechasComponent } from './modules/fechas/fechas.component';
+import { CheckoutComponent } from './modules/checkout/checkout.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { FechasComponent } from './modules/fechas/fechas.component';
     ServiciosComponent,
     HomeComponent,
     FechasComponent,
+    CheckoutComponent,
 
   ],
   imports: [
