@@ -16,6 +16,9 @@ import { ServiciosComponent } from './modules/servicios/servicios.component';
 import { HomeComponent } from './modules/home/home.component';
 import { FechasComponent } from './modules/fechas/fechas.component';
 import { ReservaComponent } from './modules/reserva/reserva.component';
+import { TransporteComponent } from './modules/transporte/transporte.component';
+import { TourComponent } from './modules/tour/tour.component';
+
 
 
 
@@ -33,7 +36,10 @@ import { ReservaComponent } from './modules/reserva/reserva.component';
     ServiciosComponent,
     HomeComponent,
     FechasComponent,
-    ReservaComponent
+    ReservaComponent,
+    TransporteComponent,
+    TourComponent,
+
 
 
 
