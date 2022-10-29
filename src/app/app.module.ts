@@ -15,7 +15,10 @@ import { Navbar2Component } from './shared/navbar2/navbar2.component';
 import { ServiciosComponent } from './modules/servicios/servicios.component';
 import { HomeComponent } from './modules/home/home.component';
 import { FechasComponent } from './modules/fechas/fechas.component';
-import { CheckoutComponent } from './modules/checkout/checkout.component';
+import { ReservaComponent } from './modules/reserva/reserva.component';
+
+
+
 
 
 @NgModule({
@@ -30,7 +33,10 @@ import { CheckoutComponent } from './modules/checkout/checkout.component';
     ServiciosComponent,
     HomeComponent,
     FechasComponent,
-    CheckoutComponent,
+    ReservaComponent
+
+
+
 
   ],
   imports: [

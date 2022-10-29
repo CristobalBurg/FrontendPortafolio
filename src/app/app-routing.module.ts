@@ -6,17 +6,21 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { ServiciosComponent } from './modules/servicios/servicios.component';
 import { HomeComponent } from './modules/home/home.component';
 import { FechasComponent } from './modules/fechas/fechas.component';
-import { CheckoutComponent } from './modules/checkout/checkout.component';
+import { ReservaComponent } from './modules/reserva/reserva.component';
+
+
 
 const routes: Routes = [
-  {path: "", redirectTo: 'checkout', pathMatch:'full'},
+  {path: "", redirectTo: 'reserva', pathMatch:'full'},
   {path: 'departamentos' , component: DepartamentosComponent},
   {path: 'navbar2' , component: Navbar2Component},
   {path: 'footer' , component: FooterComponent},
   {path: 'servicios' , component: ServiciosComponent},
   {path: 'home' , component: HomeComponent},
   {path: 'fechas' , component: FechasComponent},
-  {path: 'checkout' , component: CheckoutComponent},
+  {path: 'reserva' , component: ReservaComponent},
+  
+
 
 
 ];
