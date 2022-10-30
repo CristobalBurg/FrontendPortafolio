@@ -13,7 +13,7 @@ import { TourComponent } from './modules/tour/tour.component';
 
 
 const routes: Routes = [
-  {path: "", redirectTo: 'transporte', pathMatch:'full'},
+  {path: "", redirectTo: '', pathMatch:'full'},
   {path: 'departamentos' , component: DepartamentosComponent},
   {path: 'navbar2' , component: Navbar2Component},
   {path: 'footer' , component: FooterComponent},

@@ -17,6 +17,19 @@
                   <div class="card-body">
                     <h4 class="fw-light"><b>Minivan comoda y full equipada. Hasta 8 pasajeros</b></h4>
                     <p class="card-text">Precio por Pasajero: $5.000 <span class="text-muted"> Incluye equipaje</span>
+                      <div class="contenedor">
+                        <form name="formulario" method="post" action="/send.php">Pasajeros
+                          <input type="number" name="numero" value="0" min="1" max="8" step="1" />
+                        </form>
+                         <h6 class="my-0">Total Transporte: <span class="text-muted">$40.000</span></h6>
+                        <br>
+                      </div>
+                      <div class="col-md-5">
+                        
+                        <div class="invalid-feedback">
+                      
+                        </div>
+                      </div>
                     <div class="d-flex justify-content-between align-items-center" button class="w-15 btn btn-primary center" type="button" routerLink="/reserva">Agregar servicio</div>
                   </div>
                 </div>
@@ -29,6 +42,13 @@
                     <h4 class="fw-light"><b>Bus con aire acondicionado y wifi</b></h4>
                     <br>
                     <p class="card-text">Valor pasaje: $2.000</p>
+                    <div class="contenedor">
+                      <form name="formulario" method="post" action="/send.php">Pasajeros
+                        <input type="number" name="numero" value="0" min="1" max="8" step="1" />
+                      </form>
+                       <h6 class="my-0">Total Transporte: <span class="text-muted">$8.000</span></h6>
+                      <br>
+                    </div>
                     <div class="d-flex justify-content-between align-items-center" button class="w-15 btn btn-primary center" type="button" routerLink="/reserva">Agregar servicio</div>
 
                   </div>
@@ -47,6 +67,7 @@
             </div>
           </div>
           
+
         </div>
         <div class="invisible">...</div>
       </main>     
