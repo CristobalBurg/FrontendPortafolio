@@ -1,0 +1,189 @@
+<body class="bg-light">
+    
+    <div class="container">
+      <main>
+        <div class="py-5 text-center">
+          <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-3 "> <img src="../../../assets/img/tr.png"  class="rounded float-left" alt="tr" width="140" height="60" loading="lazy">         
+            </header>
+          </div>
+          <h2>Confirma Reserva</h2>
+          <p class="lead">No te pierdas ese departamento de tus sueños para tus vacaciones. Reserva Ya</p>
+        </div>
+    
+        <div class="row g-5">
+          <div class="col-md-5 col-lg-4 order-md-last">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-primary">Resumen de Reserva</span>
+            </h4>
+            <h1>Departamento</h1>
+            <div class="contenedor">
+                <div class="contenido" >&nbsp;<img class="bd-placeholder-img rounded-circle"  width="130" height="130" src="../../../assets/img/depa1.jpg" alt="Card image cap" style = "float: left"></div>
+                <div class="contenido" >&nbsp;&nbsp;Departamento en sector de reñaca </div>
+                <div class="contenido" >&nbsp;&nbsp;90mts2.  3 dormitorios y 3 baños.</div>
+                <div class="contenido" >&nbsp;&nbsp;Precio x noche: $120.000 CLP </div>
+                <div class="contenido" >&nbsp;&nbsp;Cantidad de días: 8 </div>
+            </div>
+            <p></p>
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                  <div>
+                      <h6 class="my-0">Total Departamento:</h6>
+                    </div>
+                    <span class="text-muted">$975.000 CLP</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                      <h6 class="my-0">Total Servicios:</h6>
+                    </div>
+                    <span class="text-muted">$50.000 CLP</span>
+                  </li>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Código de Descuento">
+                  <button type="submit" class="btn btn-secondary">Aplicar</button>
+                </div>
+                <li class="list-group-item d-flex justify-content-between bg-light">
+                  <div class="text-success">
+                    <h6 class="my-0">Código de Descuento</h6>
+                    <small>Ejemplo</small>
+                  </div>
+                  <span class="text-success">−$5</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>Total </span>
+                  <strong>$1.030.000</strong>
+                </li>
+              </ul>
+            <div>
+        <div></div>
+        </div>
+          </div>
+          <div class="col-md-7 col-lg-8">
+            <h4 class="mb-3">Datos personales</h4>
+            <form class="needs-validation" novalidate>
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label for="firstName" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                  <div class="invalid-feedback" color="red">
+                    Este campo es obligatorio.
+                  </div>
+                </div>
+    
+                <div class="col-sm-6">
+                  <label for="lastName" class="form-label">Apellido</label>
+                  <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                  <div class="invalid-feedback" color="red">
+                    Este campo es obligatorio.
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label for="email" class="form-label">Email <span class="text-muted"></span></label>
+                  <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com">
+                  <div class="invalid-feedback">
+                    Por favor ingrese un mail valido
+                  </div>
+                </div>
+
+                <div class="col-12">
+                    <label for="telefono" class="form-label">Telefono</label>
+                    <div class="input-group has-validation">
+                      <span class="input-group-text">+56</span>
+                      <input type="text" class="form-control" id="telefono" placeholder="123456789" required>
+                    <div class="invalid-feedback">
+                      Este campo es obligatorio.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-5">
+                    <label for="country" class="form-label">País</label>
+                    <select class="form-select" id="country" required>
+                      <option value="">Seleccionar</option>
+                      <option>Chile</option>
+                      <option>Brasil</option>
+                      <option>Argentina</option>
+                      <option>Israel</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Por favor seleccione un país válido.
+                    </div>
+                  </div>
+              </div>
+
+    
+              <hr class="my-4">
+    
+              <h4 class="mb-3">Pago</h4>
+    
+              <div class="my-3">
+                <div class="form-check">
+                  <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                  <label class="form-check-label" for="credit">Garantía Tarjeta de Credito</label>
+                </div>
+                <div class="form-check">
+                  <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+                  <label class="form-check-label"for="debit">Depósito o Transferencia bancaria</label>
+                </div>
+                <div class="form-check">
+                  <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+                  <img height="50" class="webpay-plus-logo" alt="Webpay Plus" src="../../../assets/img/webpay.png">
+                </div>
+               
+              </div>
+    
+              <div class="row gy-3">
+                <div class="col-md-6">
+                    
+                  <label for="cc-name" class="form-label">Nombre dueño tarjeta</label>
+                  <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                  <small class="text-muted">Ingrese el nombre tal y como se muestra en la tarjeta</small>
+                  <div class="invalid-feedback">
+                    Nombre requerido
+                  </div>
+                </div>
+    
+                <div class="col-md-6">
+                  <label for="cc-number" class="form-label">Numero Tarjeta</label>
+                  <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Numero tarjeta es requerido
+                  </div>
+                </div>
+    
+                <div class="col-md-3">
+                  <label for="cc-expiration" class="form-label">Expiration</label>
+                  <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Expiration date required
+                  </div>
+                </div>
+    
+                <div class="col-md-3">
+                  <label for="cc-cvv" class="form-label">CVV</label>
+                  <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Security code required
+                  </div>
+                </div>
+              </div>
+              <p>ocuparemos appy de pago? para redireccionar?</p>
+              <hr class="my-4">
+    
+              <button class="w-100 btn btn-primary btn-lg" type="submit">Continua al Pago</button>
+            </form>
+          </div>
+        </div>
+      </main>
+    
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2017–2021 Company Name</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+      </footer>
+    </div>
+    
+      </body>
