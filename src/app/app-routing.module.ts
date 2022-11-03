@@ -9,7 +9,7 @@ import { FechasComponent } from './modules/fechas/fechas.component';
 import { ReservaComponent } from './modules/reserva/reserva.component';
 import { TransporteComponent } from './modules/transporte/transporte.component';
 import { TourComponent } from './modules/tour/tour.component';
-
+import { DeptoDosComponent} from './modules/fechas/depto-dos/depto-dos.component';
 
 
 const routes: Routes = [
@@ -23,7 +23,8 @@ const routes: Routes = [
   {path: 'reserva' , component: ReservaComponent},
   {path: 'transporte' , component: TransporteComponent},
   {path: 'tour' , component: TourComponent},
-
+  {path: 'depto-dos' , component: DeptoDosComponent},
+ 
 
 
 ];

@@ -18,6 +18,7 @@ import { FechasComponent } from './modules/fechas/fechas.component';
 import { ReservaComponent } from './modules/reserva/reserva.component';
 import { TransporteComponent } from './modules/transporte/transporte.component';
 import { TourComponent } from './modules/tour/tour.component';
+import { DeptoDosComponent } from './modules/fechas/depto-dos/depto-dos.component';
 
 
 
@@ -39,6 +40,7 @@ import { TourComponent } from './modules/tour/tour.component';
     ReservaComponent,
     TransporteComponent,
     TourComponent,
+    DeptoDosComponent,
 
 
 
