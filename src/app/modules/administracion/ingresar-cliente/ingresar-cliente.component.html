@@ -1,0 +1,126 @@
+<div class="container-fluid m-0 p-0">
+    <div class="py-2 bg-primary"></div>
+    <div class="container p-5">
+        <div class="row p-5 justify-content-center">
+            <div class="col-md-4">
+                <div class="mb">
+                    <h1>Agregar Usuario</h1>
+                    <hr>
+                </div>
+                <!-- formulario -->
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="rut" class="form-label">Rut Usuario</label>
+                        <input type="text" name="rut-usuario" id="rut-usuario" placeholder="20-844.342-5"
+                            class="form-control" required>                          
+                    </div>
+                    <div class="mb-3">
+                        <label for="apellido" class="form-label">Apellido Usuario</label>
+                        <input type="text" name="apellido-usuario" id="apellido-usuario" placeholder="Herrera"
+                            class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" name="email-usuario" id="email-usuario" placeholder="arayeska.melanie@gmail.com"
+                            class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="enabled" class="form-label">Enabled</label>
+                        <input type="text" name="enabled-usuario" id="enabled-usuario" placeholder="1 o 0"
+                            class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="admin" class="form-label">Admin</label>
+                        <input type="text" name="usuario-admin" id="usuario-admin" placeholder="Admin 1203"
+                            class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre Usuario</label>
+                        <input type="text" name="nombre-usuario" id="nombre-usuario" placeholder="Arayeska"
+                            class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="text" name="password-usuario" id="password-usuario" placeholder="********"
+                            class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="perfil" class="form-label">Perfil</label>
+                        <input type="text" name="perfil-usuario" id="perfil-usuario" placeholder="tipo de perfil"
+                            class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Telefono</label>
+                        <input type="text" name="telefono-usuario" id="telefono-usuario" placeholder="964329835"
+                            class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" name="username-cliente" id="username-cliente" placeholder="El coyote 0000"
+                            class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="comuna" class="form-label">Comuna</label>
+                        <input type="text" name="comuna-cliente" id="comuna-cliente" placeholder="Las condes"
+                            class="form-control" required>
+                    </div>
+                    <div class="mb-3 d-grid">
+                        <button type="submit" class="btn btn-outline-primary btn-block">Guardar</button>
+                    </div>
+                </form>
+                <!-- /////////////// -->
+            </div>
+
+            <div class="col-md-8 ms-5">
+                <div class="mb">
+                    <h1>Lista de Clientes</h1>
+                    <hr>
+                </div>
+                <!-- Mantenedor -->
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Rut</th>
+                            <th>Apellido</th>
+                            <th>Email</th>
+                            <th>Enabled</th>
+                            <th>Admin</th>
+                            <th>Nombre</th>
+                            <th>Password</th>
+                            <th>Perfil</th>
+                            <th>Telefono</th>
+                            <th>Username</th>
+                            <th>Comuna</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>11.222.095-2</td>
+                            <td>Tapia</td>
+                            <td>Tapia-99@gmail.es</td>
+                            <td>0</td>
+                            <td>Si</td>
+                            <td>Pepito pepe</td>
+                            <td>coyote0000</td>
+                            <td></td>
+                            <td>+56941162099</td>
+                            <td>Black top 98</td>
+                            <td>Las condes</td>
+                            <td>
+                                <button type="button" class="btn btn-danger">Eliminar</button>
+                                <button type="button" class="btn btn-warning">Editar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <!-- En caso de no haber ingresados 
+                    <tbody>
+                        <td colspan="3" class="text-center py-2">No hay clientes ingresados.</td>
+                    </tbody>
+                    -->
+                </table>
+                <!-- /////////////// -->
+            </div>
+        </div>
+    </div>
+</div>

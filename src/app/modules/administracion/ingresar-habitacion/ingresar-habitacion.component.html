@@ -1,0 +1,65 @@
+<div class="container-fluid m-0 p-0">
+    <div class="py-2 bg-primary"></div>
+    <div class="container p-5">
+        <div class="row p-5 justify-content-center">
+            <div class="col-md-4">
+                <div class="mb">
+                    <h1>Agregar Habitacion</h1>
+                    <hr>
+                </div>
+                <!-- formulario -->
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Id Habitacion </label>
+                        <input type="text" name="nombre-cliente" id="nombre-cliente" placeholder="001"
+                            class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="rut" class="form-label">Rut Cliente</label>
+                        <input type="text" name="rut-cliente" id="rut-cliente" placeholder="12.203.456-2"
+                            class="form-control" required>
+                    </div>
+                    <div class="mb-3 d-grid">
+                        <button type="submit" class="btn btn-outline-primary btn-block">Guardar</button>
+                    </div>
+                </form>
+                <!-- /////////////// -->
+            </div>
+
+            <div class="col-md-6 ms-5">
+                <div class="mb">
+                    <h1>Lista de Habitaciones</h1>
+                    <hr>
+                </div>
+                <!-- Mantenedor -->
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Id</th>
+                            <th>Departamento</th>
+                            <th>Ubicacion</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>Depto centro Valdivia 60 mt2 2 dormitorios 2 baños</td>
+                            <td> Sector de reñaca</td>
+                            <td>
+                                <button type="button" class="btn btn-danger">Eliminar</button>
+                                <button type="button" class="btn btn-warning">Editar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <!-- En caso de no haber ingresados 
+                    <tbody>
+                        <td colspan="3" class="text-center py-2">No hay clientes ingresados.</td>
+                    </tbody>
+                    -->
+                </table>
+                <!-- /////////////// -->
+            </div>
+        </div>
+    </div>
+</div>
