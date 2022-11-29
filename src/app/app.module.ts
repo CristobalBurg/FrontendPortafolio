@@ -22,6 +22,7 @@ import { AdministracionComponent } from './modules/administracion/administracion
 import { IngresarClienteComponent } from './modules/administracion/ingresar-cliente/ingresar-cliente.component';
 import { IngresarHabitacionComponent } from './modules/administracion/ingresar-habitacion/ingresar-habitacion.component';
 import { IngresarDepartamentoComponent } from './modules/administracion/ingresar-departamento/ingresar-departamento.component';
+import { NosotrosComponent } from './modules/nosotros/nosotros.component';
 
 
 
@@ -44,6 +45,7 @@ import { IngresarDepartamentoComponent } from './modules/administracion/ingresar
     IngresarClienteComponent,
     IngresarHabitacionComponent,
     IngresarDepartamentoComponent,
+    NosotrosComponent,
 
 
   ],

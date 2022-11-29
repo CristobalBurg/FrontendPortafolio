@@ -13,5 +13,6 @@ export class AdministracionComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
+  
 }
+ 
